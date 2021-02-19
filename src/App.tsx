@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Floor from './components/Floor';
+import Navigator from './components/Navigator';
+import Search from './components/Search';
+import { MAP_DETAILS } from './models/map-details';
 
-function App() {
+const App = () => {
+  let currentFloor = 1;
+  const handleNavigate = (floor: number): void => {
+    currentFloor = floor;
+    console.log('Navigated');
+  };
+
+  const handleSearch = (value: string) => {
+    console.log('Searched', value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Search seachHandler={handleSearch} />
+      <Floor floor={currentFloor} />
+      <Navigator
+        currentFloor={1}
+        totalFloors={MAP_DETAILS.length}
+        navigateHandler={handleNavigate}
+      />
     </div>
   );
-}
+};
 
 export default App;
