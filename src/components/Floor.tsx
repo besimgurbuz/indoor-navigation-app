@@ -9,7 +9,6 @@ interface FloorProps {
 const Floor = ({ floor }: FloorProps) => {
   return (
     <div className='floor-container'>
-      Floor Works
       <Map mapDetails={MAP_DETAILS.find((d) => d.floor === floor)!} />
     </div>
   );

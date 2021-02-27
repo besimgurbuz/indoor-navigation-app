@@ -21,7 +21,7 @@ const App = () => {
       <Search seachHandler={handleSearch} />
       <Floor floor={currentFloor} />
       <Navigator
-        currentFloor={1}
+        currentFloor={3}
         totalFloors={MAP_DETAILS.length}
         navigateHandler={handleNavigate}
       />

@@ -22,4 +22,19 @@ export const MAP_DETAILS: MapDetail[] = [
     totalShops: 5,
     shopDetails: [],
   },
+  {
+    floor: 3,
+    totalShops: 5,
+    shopDetails: [],
+  },
+  {
+    floor: 4,
+    totalShops: 5,
+    shopDetails: [],
+  },
+  {
+    floor: 5,
+    totalShops: 5,
+    shopDetails: [],
+  },
 ];

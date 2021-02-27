@@ -23,7 +23,6 @@ const Map = ({ mapDetails: details }: MapProps) => {
 
   return (
     <div>
-      Map works
       <canvas ref={canvas} className='map-canvas'></canvas>
     </div>
   );
