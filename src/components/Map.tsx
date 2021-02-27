@@ -38,8 +38,8 @@ const Map = ({ mapDetails: details }: MapProps) => {
         context.fillStyle = labelColor;
         context.font = `${labelSize}px`;
 
-        const labelX = (label.length * labelSize - width) / 2 + startX;
-        const labelY = startY + height / 2;
+        const labelX = (width - label.length * labelSize) / 2 + startX;
+        const labelY = startY + height / 2 + 5;
         context.fillText(label, labelX, labelY);
       }
     }
