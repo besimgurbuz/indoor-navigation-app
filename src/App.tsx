@@ -17,11 +17,11 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
+    <div className='app'>
       <Search seachHandler={handleSearch} />
       <Floor floor={currentFloor} />
       <Navigator
-        currentFloor={3}
+        currentFloor={2}
         totalFloors={MAP_DETAILS.length}
         navigateHandler={handleNavigate}
       />

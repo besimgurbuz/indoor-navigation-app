@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button, ButtonGroup } from '@material-ui/core';
+import './Navigator.css';
 
 interface NavigatorProps {
   currentFloor: number;
@@ -11,42 +13,31 @@ const Navigator = ({
   totalFloors,
   navigateHandler: navigate,
 }: NavigatorProps) => {
-  const [nav, changeNav] = useState([0, 0, 0, 0]);
+  const [nav, setNav] = useState([0, 0, 0, 0, 0]);
 
   useEffect(() => {
-    changeNav(generateNavigation());
+    generateNavItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentFloor, totalFloors]);
 
+  const generateNavItems = () => {
+    const left = currentFloor - 2 <= 0 ? 1 : currentFloor - 2;
+    const right =
+      currentFloor + 2 >= totalFloors ? totalFloors : currentFloor + 2;
 
-  const generateNavigation = (): number[] => {
-    let res: number[] = [];
-    let b = currentFloor;
-    let f = currentFloor;
-
-    res = res.reverse();
-    while (b > 0 && res.length !== 4) {
-      res.push(b);
-      b--;
+    const items = [];
+    for (let i = left; i <= right; i++) {
+      items.push(i);
     }
-
-    res = res.reverse();
-    while (res.length !== 4) {
-      res.push(f + 1);
-      f++;
-    }
-
-    return res;
+    setNav(items);
   };
 
   return (
-    <div>
-      { nav.map(item => {
-        return <div className="page">
-          {item}
-        </div>
-      })
-      }
-    </div>
+    <ButtonGroup className='navigation' color='primary' variant='contained'>
+      {nav.map((item) => {
+        return <Button>{item}</Button>;
+      })}
+    </ButtonGroup>
   );
 };
 

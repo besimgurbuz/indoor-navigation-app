@@ -1,6 +1,7 @@
 import React from 'react';
 import { MAP_DETAILS } from '../models/map-details';
 import Map from './Map';
+import './Floor.css';
 
 interface FloorProps {
   floor: number;

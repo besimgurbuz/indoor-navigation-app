@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
+import './Search.css';
 
 interface SearchProps {
   seachHandler: (value: string) => void;
